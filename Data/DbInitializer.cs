@@ -38,8 +38,35 @@ namespace RelationsNaN.Data
                     Image = "https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/XCOM_2_cover_art.jpg/220px-XCOM_2_cover_art.jpg"
                 };
                 await _context.Game.AddAsync(game3);
+                //Platform
+                if (_context.Platform.Count() == 0)
+                {
+                    Platform ps5 = new Platform()
+                    {
+                        Name = "PS4"
+                    };
+                    await _context.Platform.AddAsync(ps5);
 
-                await _context.SaveChangesAsync();
+                    Platform xbox360 = new Platform()
+                    {
+                        Name = "Xbox One"
+                    };
+                    await _context.Platform.AddAsync(xbox360);
+
+                    Platform n64 = new Platform()
+                    {
+                        Name = "Switch"
+                    };
+                    await _context.Platform.AddAsync(n64);
+
+                    Platform pc = new Platform()
+                    {
+                        Name = "PC"
+                    };
+
+                    await _context.Platform.AddAsync(pc);
+                }
+                    await _context.SaveChangesAsync();
             }
         }
     }
